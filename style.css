@@ -1,0 +1,115 @@
+/*VARIABLES*/
+
+  body {
+      font-family:"DM Sans", sans-serif;
+  }
+
+
+/*HEADER BANNER*/
+
+.headerBanner {
+    padding: 40px 20px 20px 20px;
+    display:flex;
+    flex-direction: column;
+}
+
+.headerBanner img {
+    width: 150px;
+    height: auto;
+}
+
+
+/*NAVIGATION*/
+
+.filter {
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+ul {
+    padding: 0;
+    margin: 5px, 0, 5px, 0;
+}
+
+li {
+    display:flex;
+    border: 0.5px solid #c4c4c4;
+    border-radius: 30px;
+    margin: 3px 6px 3px 0;
+    color: #fff;
+    padding: 2px 7px;
+    font-weight:500;
+    font-size: .8em;  
+}
+li:hover {
+    cursor: pointer;
+    background: #901C1c;
+    border-color:#901C1c;   
+}
+
+li:hover a{
+    color:#fff;  
+}
+
+
+li a {
+    text-decoration: none;
+    color:#901C1c;
+}
+
+li a:hover {
+    color:#fff;
+}
+
+
+
+
+/*MAIN*/
+
+main h1 {
+    color: #901C1c;
+    font-weight: 400;
+    font-size: 1em;
+    position:absolute;
+    top:50px;
+    right:20px;
+
+}
+
+.photographer-elt {
+    text-align: center;
+}
+
+.photographer-elt img {
+    border-radius: 50%;
+    width:200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.photographer-elt h2 {
+    color: #d3573c;
+    font-weight: 400;
+    font-size: 2em;
+    margin:10px 0 0 0;
+
+}
+
+.infoCity {
+    color: #901C1C;
+    font-size: .7em;
+    padding: 1px 0;
+}
+
+.infoTagline {
+    font-size: .7em;
+    padding: 1px 0;
+}
+
+.infoPrice {
+    font-size: .7em;
+    padding: 1px 0;
+    color:#757575;
+    font-style: italic;
+}
