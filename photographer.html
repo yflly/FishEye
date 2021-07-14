@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Photographer | FishEye</title>
+    <link rel="stylesheet" href="photographer.css" />
+    <link rel="stylesheet" href="form.css" />
+  </head>
+  <!--HEADER/BANNER-->
+  <body>
+    <header class="headerBanner">
+      <a href="index.html" title="Homepage">
+        <img src="Sample_Photos\logo.png" alt="Fisheye Home Page" />
+      </a>
+    </header>
+
+    <!--MAIN-->
+    <main>
+      <section class="photographer" id="photographer">
+        <div class="photographer_infos">
+          <h1 id="name"></h1>
+          <p id="location"></p>
+          <p id="tagline"></p>
+          <ul id="tags" class="filter"></ul>
+        </div>
+        <div class="modalButton">
+          <button id="modal-btn" class="modal-btn">Contactez-moi</button>
+        </div>
+      </section>
+
+      <!--MODAL-->
+      <div class="bground">
+        <div class="content">
+          <span class="close"></span>
+          <form name="modalForm" id="myForm">
+            <h1 id="bground__title">Contactez-moi</h1>
+            <span class="form-name" id="form-name"></span>
+
+            <label for="first">Prénom</label>
+            <input
+              class="text-control"
+              type="text"
+              id="first"
+              name="first"
+              required
+            />
+
+            <label for="last">Nom</label>
+            <input
+              class="text-control"
+              type="text"
+              id="last"
+              name="last"
+              required
+            />
+
+            <label for="email">Email</label>
+            <input
+              class="text-control"
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
+
+            <label for="message">Votre message</label>
+            <textarea id="message" name="message" rows="5" cols="30">
+            </textarea>
+            <input class="btn-submit button" type="submit" value="Envoyer" />
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="./photographer.js"></script>
+    <script src="./form.js"></script>
+  </body>
+</html>
