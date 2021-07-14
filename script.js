@@ -54,17 +54,17 @@ function photographerNodeFactory(photographer) {
 
   // CREE LISTE TAG
   // CREE ELEMENT li DE LA LISTE TAG
-  const createTagList = (Ul, TagEl, hrefUrl) => {
+  function createTagList(Ul, tag, hrefUrl) {
     const tagsLi = document.createElement("li");
-    tagsLi.className = "tag-btn";
-    tagsLi.setAttribute("id", TagEl);
+    tagsLi.className = `tag-btn filter_${tag}`;
+    tagsLi.setAttribute("id", tag);
     const tagsA = document.createElement("a");
     tagsA.setAttribute("href", hrefUrl);
-    tagsA.textContent = "#" + TagEl;
+    tagsA.textContent = "#" + tag;
 
     tagsLi.appendChild(tagsA);
     Ul.appendChild(tagsLi);
-  };
+  }
 
   // CREE ELEMENT ul DE LA LISTE TAG
   const tagsUl = document.createElement("ul");
@@ -95,6 +95,8 @@ if (condition) {
 } else {
   temp = false;
 } */
+
+//On affiche tous les photographes au chargement de la page
 function renderCards() {
   data.photographers.forEach((photographer) =>
     document
@@ -102,10 +104,28 @@ function renderCards() {
       .appendChild(photographerNodeFactory(photographer))
   );
 }
+
+//On applique les filtres
 function applyFilter(tag = false) {
   data.photographers.forEach((photographer) => {
     document.getElementById("photographer-" + photographer.id).style.display =
       photographer.tags.includes(tag) ? "block" : "none";
   });
   // Gérer l'affichage conditionnel du background des boutons
+  [...document.getElementsByClassName("tag_active")].forEach((btn) => {
+    btn.classList.remove("tag_active");
+  });
+  [...document.getElementsByClassName("filter_" + tag)].forEach((btn) => {
+    btn.classList.add("tag_active");
+  });
 }
+
+//FAIRE APPARAITRE ELEMENT "PASSER AU CONTENU"
+window.addEventListener("scroll", () => {
+  const returnTopElement = document.getElementById("return-top");
+  if (window.scrollY > 485) {
+    returnTopElement.style.display = "block";
+  } else {
+    returnTopElement.style.display = "none";
+  }
+});
