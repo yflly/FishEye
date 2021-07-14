@@ -1,0 +1,82 @@
+.bground {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(196, 196, 196, 0.4);
+}
+
+#myForm {
+  display: flex;
+  flex-direction: column;
+  background: #db8876;
+  border-radius: 5px;
+  padding: 25px 35px 35px 35px;
+  box-shadow: 0 0 15px #666;
+}
+
+#bground__title,
+.form-name {
+  font-weight: 400;
+  font-size: 2.2em;
+  margin: 0;
+}
+
+label {
+  font-size: 1.2em;
+  margin: 5px 0 3px 0;
+}
+input {
+  border: none;
+  padding: 5px;
+  font-size: 1.2em;
+  border-radius: 5px;
+}
+
+textarea {
+  border: none;
+  padding: 5px;
+  font-size: 1.2em;
+  border-radius: 5px;
+}
+
+.btn-submit {
+  margin-top: 25px;
+  background-color: #901c1c;
+  color: #fff;
+  font-size: 1em;
+  width: 170px;
+  height: 35px;
+  align-self: center;
+}
+
+/*CLOSE*/
+.close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+.close:before,
+.close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
