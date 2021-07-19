@@ -227,6 +227,9 @@ i {
 .contentPhotoVideo {
   width: 335px;
   margin: 0 0 10px 0;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #901c1c;
 }
 
 @media (min-width: 1200px) {
@@ -245,6 +248,29 @@ video {
 }
 
 @media (min-width: 1200px) {
-  width: 350px;
-  height: 300px;
+  img,
+  video {
+    width: 350px;
+    height: 300px;
+  }
+}
+
+.titleContent {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.titlePhotoVideo {
+  width: 225px;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.fa-heart {
+  margin-left: 5px;
 }
