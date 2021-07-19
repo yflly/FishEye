@@ -12,9 +12,23 @@ body {
   flex-direction: column;
 }
 
+@media (min-width: 1200px) {
+  .headerBanner {
+    flex-direction: row;
+    align-items: center;
+    padding: 40px 100px;
+  }
+}
+
 .headerBanner img {
   width: 150px;
   height: auto;
+}
+
+@media (min-width: 1200px) {
+  .headerBanner img {
+    width: 200px;
+  }
 }
 
 /*BODY*/
@@ -25,11 +39,26 @@ body {
   margin: 0 20px;
 }
 
+@media (min-width: 1200px) {
+  .photographer {
+    position: relative;
+    margin: 0 100px;
+    padding: 60px 35px 50px 65px;
+    background: #fafafa;
+  }
+}
+
 #name {
   color: #d3573c;
   font-weight: 400;
   font-size: 2.4em;
   margin: 0;
+}
+
+@media (min-width: 1200px) {
+  #name {
+    font-size: 2.8em;
+  }
 }
 
 #location {
@@ -40,10 +69,24 @@ body {
   display: block;
 }
 
+@media (min-width: 1200px) {
+  #location {
+    font-size: 1.2em;
+  }
+}
+
 #tagline {
   font-size: 0.8em;
   padding: 0;
   margin: 0;
+}
+
+@media (min-width: 1200px) {
+  #tagline {
+    display: block;
+    font-size: 0.9em;
+    margin: 15px 0;
+  }
 }
 
 .photographer img {
@@ -51,6 +94,13 @@ body {
   height: 100px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+@media (min-width: 1200px) {
+  .photographer img {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 /*NAVIGATION*/
@@ -115,4 +165,86 @@ button {
   transform: translateX(-50%);
   bottom: 28px;
   cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+  button {
+    position: absolute;
+    left: 480px;
+    top: 60px;
+    transform: translateX(0);
+    height: 70px;
+  }
+}
+
+/*RECTANGLE LIKE & PRICE*/
+#rectangleLikePrice {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+
+  position: fixed;
+  bottom: 0;
+  right: 40px;
+  background: #db8876;
+  width: 376px;
+  height: 89px;
+  border-radius: 5px;
+  padding: 0 35px;
+  font-weight: 500;
+  font-size: 1.2em;
+}
+
+i {
+  position: relative;
+  left: -100px;
+}
+
+@media (min-width: 1200px) {
+  #rectangleLikePrice {
+    display: flex;
+  }
+}
+
+/*CONTENU PHOTOS VIDEOS*/
+
+.photographerContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 45px 0;
+  padding: 0 20 px;
+}
+
+@media (min-width: 1200px) {
+  .photographerContent {
+    margin: 45px 100px;
+    padding: 0;
+    justify-content: space-between;
+  }
+}
+
+.contentPhotoVideo {
+  width: 335px;
+  margin: 0 0 10px 0;
+}
+
+@media (min-width: 1200px) {
+  .contentPhotoVideo {
+    width: 350px;
+    margin: 0 5xp 10px 5px;
+  }
+}
+
+img,
+video {
+  width: 335px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+@media (min-width: 1200px) {
+  width: 350px;
+  height: 300px;
 }
