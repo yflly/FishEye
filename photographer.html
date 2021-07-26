@@ -13,6 +13,7 @@
     <title>Photographer | FishEye</title>
     <link rel="stylesheet" href="photographer.css" />
     <link rel="stylesheet" href="form.css" />
+    <link rel="stylesheet" href="lightbox.css" />
   </head>
   <!--HEADER/BANNER-->
   <body>
@@ -34,6 +35,15 @@
         <div class="modalButton">
           <button id="modal-btn" class="modal-btn">Contactez-moi</button>
         </div>
+      </section>
+      <!--LISTBOX-->
+      <section class="listboxSection">
+        <span class="listboxTitle">Trier par</span>
+        <select id="mediaSort">
+          <option value="popularite">Popularité</option>
+          <option value="date">Date</option>
+          <option value="titre">Titre</option>
+        </select>
       </section>
       <!--CONTENU PHOTOS ET VIDEOS-->
       <section class="photographerContent" id="photographerContent"></section>
@@ -80,6 +90,16 @@
           </form>
         </div>
       </div>
+
+      <!-- LIGHTBOX-->
+      <div id="lightbox" class="lightbox">
+        <div class="lightbox__media">
+          <button class="lightbox__close"></button>
+          <button class="fas fa-chevron-left"></button>
+          <button class="fas fa-chevron-right"></button>
+          <div id="lightboxContent"></div>
+        </div>
+      </div>
       <!--RECTANGLE LIKE & TARIF-->
       <aside id="rectangleLikePrice">
         <span id="totalLikes"></span>
@@ -87,8 +107,8 @@
         <span id="price"></span>
       </aside>
     </main>
-    <script src="./photographer.js"></script>
-    <script src="./form.js"></script>
+    <script src="../js/photographer.js"></script>
+    <script src="../js/form.js"></script>
     <script
       src="https://kit.fontawesome.com/e393f55781.js"
       crossorigin="anonymous"
