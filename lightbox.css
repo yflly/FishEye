@@ -1,0 +1,40 @@
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  max-width: 1200px;
+}
+
+.lightbox__media {
+  position: relative;
+  top: 50%;
+  bottom: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  color: #901c1c;
+}
+
+
+.fa-chevron-left {
+  left: 15px;
+}
+
+.fa-chevron-right {
+  right: 15px;
+}
+
+#lightboxContent {
+  height: 50%;
+  text-align: center;
+}
+
+button {
+  position: absolute;
+  border: none;
+  background: none;
+  color: #901c1c;
+}
