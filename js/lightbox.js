@@ -1,24 +1,10 @@
-class Lightbox {
+// CLOSE LIGHTBOX
+const lightboxBtnClose = document.querySelector(".fa-times");
 
-    static init () {
-        const links = document.querySelectorAll('img[src$=".jpg"],video[src$=".mp4"]')
-            .forEach(link => link.addEventListener('click', e =>
-            {
-                e.preventDefault()
-                new Lightbox(e.currentTarget.getAttribute('src'))
+lightboxBtnClose.addEventListener("click", closeLightbox);
 
-            }))
-    }
-
-    constructor (url) {
-        const dom = document.createElement('div')
-        dom.classList.add('lightbox')
-        dom.innerHTML = ''
-
-    }
-
-    buildDOM (url) {
-
-
-    }
+function closeLightbox() {
+  document.getElementById("cover").style.display = "none";
+  document.getElementById("lightbox").style.display = "none";
+  document.getElementById("rectangleLikePrice").style.display = "flex";
 }

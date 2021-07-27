@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="photographer.css" />
     <link rel="stylesheet" href="form.css" />
     <link rel="stylesheet" href="lightbox.css" />
+    <link rel="stylesheet" href="sort.css" />
   </head>
   <!--HEADER/BANNER-->
   <body>
@@ -36,17 +37,20 @@
           <button id="modal-btn" class="modal-btn">Contactez-moi</button>
         </div>
       </section>
-      <!--LISTBOX-->
-      <section class="listboxSection">
-        <span class="listboxTitle">Trier par</span>
-        <select id="mediaSort">
-          <option value="popularite">Popularité</option>
-          <option value="date">Date</option>
-          <option value="titre">Titre</option>
-        </select>
-      </section>
+
       <!--CONTENU PHOTOS ET VIDEOS-->
-      <section class="photographerContent" id="photographerContent"></section>
+      <section class="photographerContent" id="photographerContent">
+        <!--MEDIA SORT-->
+        <div class="photographerSort">
+          <span class="photographerSort__Title">Trier par</span>
+          <select id="mediaSort">
+            <option value="popularite">Popularité</option>
+            <option value="date">Date</option>
+            <option value="titre">Titre</option>
+          </select>
+        </div>
+        <div class="photographerPhVid" id="photographerPhVid"></div>
+      </section>
 
       <!--MODAL-->
       <div class="bground">
@@ -92,12 +96,13 @@
       </div>
 
       <!-- LIGHTBOX-->
+      <div id="cover" class="cover"></div>
       <div id="lightbox" class="lightbox">
         <div class="lightbox__media">
-          <button class="lightbox__close"></button>
+          <div id="lightboxContent"></div>
+          <button class="fas fa-times"></button>
           <button class="fas fa-chevron-left"></button>
           <button class="fas fa-chevron-right"></button>
-          <div id="lightboxContent"></div>
         </div>
       </div>
       <!--RECTANGLE LIKE & TARIF-->
@@ -109,6 +114,7 @@
     </main>
     <script src="../js/photographer.js"></script>
     <script src="../js/form.js"></script>
+    <script src="../js/lightbox.js"></script>
     <script
       src="https://kit.fontawesome.com/e393f55781.js"
       crossorigin="anonymous"
