@@ -34,7 +34,9 @@
           <ul id="tags" class="filter"></ul>
         </div>
         <div class="modalButton">
-          <button id="modal-btn" class="modal-btn">Contactez-moi</button>
+          <button id="modal-btn" class="modal-btn" aria-label="Contact me">
+            Contactez-moi
+          </button>
         </div>
       </section>
 
@@ -43,10 +45,10 @@
         <!--MEDIA SORT-->
         <div class="photographerSort">
           <span class="photographerSort__Title">Trier par</span>
-          <select id="mediaSort">
-            <option value="popularite">Popularité</option>
-            <option value="date">Date</option>
-            <option value="titre">Titre</option>
+          <select id="mediaSort" class="custom-select" style="width: 200px">
+            <option value="0">Popularité</option>
+            <option value="0">Date</option>
+            <option value="2">Titre</option>
           </select>
         </div>
         <div class="photographerPhVid" id="photographerPhVid"></div>
@@ -55,7 +57,7 @@
       <!--MODAL-->
       <div class="bground">
         <div class="content">
-          <span class="close"></span>
+          <button class="close" aria-label="Close Contact form"></button>
           <form name="modalForm" id="myForm">
             <h1 id="bground__title">Contactez-moi</h1>
             <span class="form-name" id="form-name"></span>
@@ -66,6 +68,9 @@
               type="text"
               id="first"
               name="first"
+              aria-labelledby="First name"
+              ;
+              aria-required="true"
               required
             />
 
@@ -75,6 +80,8 @@
               type="text"
               id="last"
               name="last"
+              aria-labelledby="Last name"
+              aria-required="true"
               required
             />
 
@@ -84,25 +91,54 @@
               type="email"
               id="email"
               name="email"
+              aria-labelledby="Email"
+              aria-required="true"
               required
             />
 
             <label for="message">Votre message</label>
-            <textarea id="message" name="message" rows="5" cols="30">
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              cols="30"
+              aria-labelledby="Your message"
+            >
             </textarea>
-            <input class="btn-submit button" type="submit" value="Envoyer" />
+            <input
+              class="btn-submit button"
+              type="submit"
+              value="Envoyer"
+              aria-label="Send"
+            />
           </form>
         </div>
       </div>
 
       <!-- LIGHTBOX-->
-      <div id="cover" class="cover"></div>
+      <div
+        id="cover"
+        class="cover"
+        aria-label="image closeup view"
+        aria-hidden="true"
+      ></div>
       <div id="lightbox" class="lightbox">
         <div class="lightbox__media">
           <div id="lightboxContent"></div>
-          <button class="fas fa-times"></button>
-          <button class="fas fa-chevron-left"></button>
-          <button class="fas fa-chevron-right"></button>
+          <button
+            class="fas fa-times"
+            arial-label="Close dialog"
+            aria-hidden="true"
+          ></button>
+          <button
+            class="fas fa-chevron-left"
+            aria-label="Previous image"
+          ></button>
+          <button
+            class="fas fa-chevron-right"
+            aria-label="Next image"
+            aria-hidden="true"
+          ></button>
         </div>
       </div>
       <!--RECTANGLE LIKE & TARIF-->
@@ -115,6 +151,7 @@
     <script src="../js/photographer.js"></script>
     <script src="../js/form.js"></script>
     <script src="../js/lightbox.js"></script>
+    <script src="../js/sort.js"></script>
     <script
       src="https://kit.fontawesome.com/e393f55781.js"
       crossorigin="anonymous"

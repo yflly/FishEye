@@ -20,7 +20,11 @@
         <img src="Sample_Photos\logo.png" alt="Fisheye Home Page" />
       </a>
       <!--NAVIGATION-->
-      <nav class="navigation" aria-label="photographer categories">
+      <nav
+        class="navigation"
+        aria-label="photographer categories"
+        role="filter"
+      >
         <a
           id="return-top"
           href="#homepage-main"
@@ -31,26 +35,28 @@
         >
         <ul class="filter">
           <li class="tag-btn filter_portrait" id="portrait">
-            <a href="#">#Portrait</a>
+            <span href="#">#Portrait</span>
           </li>
-          <li class="tag-btn filter_art" id="art"><a href="#">#Art</a></li>
+          <li class="tag-btn filter_art" id="art">
+            <span href="#">#Art</span>
+          </li>
           <li class="tag-btn filter_fashion" id="fashion">
-            <a href="#">#Fashion</a>
+            <span href="#">#Fashion</span>
           </li>
           <li class="tag-btn filter_architecture" id="architecture">
-            <a href="#">#Architecture</a>
+            <span href="#">#Architecture</span>
           </li>
           <li class="tag-btn filter_travel" id="travel">
-            <a href="#">#Travel</a>
+            <span href="#">#Travel</span>
           </li>
           <li class="tag-btn filter_sport" id="sport">
-            <a href="#">#Sport</a>
+            <span href="#">#Sport</span>
           </li>
           <li class="tag-btn filter_animal" id="animals">
-            <a href="#">#Animals</a>
+            <span href="#">#Animals</span>
           </li>
           <li class="tag-btn filter_events" id="events">
-            <a href="#">#Events</a>
+            <span href="#">#Events</span>
           </li>
         </ul>
       </nav>
@@ -60,6 +66,6 @@
       <h1>Nos photographes</h1>
       <section id="content"></section>
     </main>
-    <script src="/js/script.js"></script>
+    <script src="../js/script.js"></script>
   </body>
 </html>
