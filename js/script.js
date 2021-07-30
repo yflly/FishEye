@@ -1,6 +1,6 @@
 /*ON RECUPERE LE FICHIER DATA JSON*/
 let data;
-fetch("/data/FishEyeData.json")
+fetch("./data/FishEyeData.json")
   .then((response) => response.json())
   .then((json) => {
     data = json;
