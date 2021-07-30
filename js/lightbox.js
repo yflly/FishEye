@@ -1,6 +1,8 @@
 // CLOSE LIGHTBOX
 const lightboxBtnClose = document.querySelector(".fa-times");
 
+
+// CLOSE LIGHTBOX
 lightboxBtnClose.addEventListener("click", closeLightbox);
 
 function closeLightbox() {
@@ -8,3 +10,5 @@ function closeLightbox() {
   document.getElementById("lightbox").style.display = "none";
   document.getElementById("rectangleLikePrice").style.display = "flex";
 }
+
+

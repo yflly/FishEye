@@ -132,16 +132,16 @@ li:hover {
   border-color: #901c1c;
 }
 
-li:hover a {
+li:hover span {
   color: #fff;
 }
 
-li a {
+li span {
   text-decoration: none;
   color: #901c1c;
 }
 
-li a:hover {
+li span:hover {
   color: #fff;
 }
 
@@ -152,7 +152,7 @@ li a:hover {
   justify-content: center;
   align-items: center;
 }
-button {
+.modal-btn {
   background: #901c1c;
   width: 170px;
   height: 35px;
@@ -168,7 +168,7 @@ button {
 }
 
 @media (min-width: 1200px) {
-  button {
+  .modal-btn {
     position: absolute;
     left: 480px;
     top: 60px;
@@ -208,7 +208,7 @@ i {
 
 /*CONTENU PHOTOS VIDEOS*/
 
-.photographerContent {
+.photographerPhVid {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -217,7 +217,7 @@ i {
 }
 
 @media (min-width: 1200px) {
-  .photographerContent {
+  .photographerPhVid {
     margin: 45px 100px;
     padding: 0;
     justify-content: space-between;
@@ -239,8 +239,7 @@ i {
   }
 }
 
-img,
-video {
+.imgVidList {
   width: 335px;
   height: 190px;
   object-fit: cover;
@@ -248,8 +247,7 @@ video {
 }
 
 @media (min-width: 1200px) {
-  img,
-  video {
+  .imgVidList {
     width: 350px;
     height: 300px;
   }
