@@ -1,6 +1,6 @@
 /*ON RECUPERE LE FICHIER DATA JSON*/
 let data;
-fetch("/data/FishEyeData.json")
+fetch("./data/FishEyeData.json")
   .then((response) => response.json())
   .then((json) => {
     data = json;
@@ -58,7 +58,7 @@ function photographerNodeFactory(photographer) {
     const tagsLi = document.createElement("li");
     tagsLi.className = `tag-btn filter_${tag}`;
     tagsLi.setAttribute("id", tag);
-    const tagsA = document.createElement("a");
+    const tagsA = document.createElement("span");
     tagsA.setAttribute("href", hrefUrl);
     tagsA.textContent = "#" + tag;
 
