@@ -76,6 +76,10 @@ fetch("./data/FishEyeData.json")
           break;
       }
       //createMediaListItem();
+
+      /*_medias.forEach((media, index) =>
+        createMediaListItem(photographer, media, index)
+      );*/
     }
     document
       .getElementById("mediaSort")
@@ -102,7 +106,6 @@ fetch("./data/FishEyeData.json")
     //OPEN LIGHTBOX
     function openLightbox() {
       const currentMedia = media[index];
-      console.log(index);
       const contentContainer = document.getElementById("lightboxContent");
       contentContainer.innerHTML = "";
       //Image ou Video
@@ -118,11 +121,14 @@ fetch("./data/FishEyeData.json")
       } else if (currentMedia.video) {
         const videoElement = document.createElement("video");
         videoElement.className = "lightboxVideo";
-        videoElement.setAttribute(
+        videoElement.setAttribute("controls", "true");
+        const videoSource = document.createElement("source");
+        videoSource.setAttribute(
           "src",
           getSrc(photographer, currentMedia.video)
         );
         contentContainer.appendChild(videoElement);
+        videoElement.appendChild(videoSource);
       }
 
       const contentTitle = document.createElement("h3");
@@ -211,8 +217,8 @@ fetch("./data/FishEyeData.json")
       likeContainer.appendChild(titleHeart);
     }
 
-    _medias.forEach((media, index) =>
-      createMediaListItem(photographer, media, index)
+    _medias.forEach((media, _index) =>
+      createMediaListItem(photographer, media, _index)
     );
 
     //INCREMENTES LES LIKES
