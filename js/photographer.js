@@ -1,5 +1,5 @@
 /*ON RECUPERE LE FICHIER DATA JSON*/
-fetch("/data/FishEyeData.json")
+fetch("./data/FishEyeData.json")
   .then((response) => response.json())
   .then((json) => {
     const id = parseInt(window.location.search.slice(4));
