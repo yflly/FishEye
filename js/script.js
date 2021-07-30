@@ -33,7 +33,7 @@ function photographerNodeFactory(photographer) {
   const picture = document.createElement("img");
   picture.setAttribute(
     "src",
-    "../Sample_Photos/Photographers ID Photos/" + photographer.portrait
+    "./Sample_Photos/Photographers ID Photos/" + photographer.portrait
   );
   picture.setAttribute("alt", "na");
 
