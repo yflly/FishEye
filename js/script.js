@@ -4,7 +4,16 @@ fetch("./data/FishEyeData.json")
   .then((response) => response.json())
   .then((json) => {
     data = json;
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const tag = urlParams.get("tag");
+
     renderCards();
+
+    if (tag) {
+      applyFilter(tag);
+    }
 
     [...document.getElementsByClassName("tag-btn")].forEach((btn) => {
       btn.addEventListener("click", (event) => {

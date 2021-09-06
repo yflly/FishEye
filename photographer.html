@@ -26,7 +26,11 @@
 
     <!--MAIN-->
     <main>
-      <section class="photographer" id="photographer">
+      <section
+        class="photographer"
+        id="photographer"
+        aria-label="photographer information"
+      >
         <div class="photographer_infos">
           <h1 id="name"></h1>
           <p id="location"></p>
@@ -41,10 +45,16 @@
       </section>
 
       <!--CONTENU PHOTOS ET VIDEOS-->
-      <section class="photographerContent" id="photographerContent">
+      <section
+        class="photographerContent"
+        id="photographerContent"
+        aria-label="Photographer Content"
+      >
         <!--MEDIA SORT-->
         <div class="photographerSort">
-          <span class="photographerSort__Title">Trier par</span>
+          <label for="mediaSort" class="photographerSort__Title"
+            >Trier par</label
+          >
           <select id="mediaSort" class="custom-select" style="width: 200px">
             <option value="popularite">Popularité</option>
             <option value="date">Date</option>

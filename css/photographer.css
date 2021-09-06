@@ -132,17 +132,17 @@ li:hover {
   border-color: #901c1c;
 }
 
-li:hover span {
+li:hover a {
   color: #fff;
 }
 
-li span {
+li a {
   text-decoration: none;
   color: #901c1c;
 }
 
-li span:hover {
-  color: #fff;
+li a {
+  color: #901c1c;
 }
 
 /*MODAL BUTTON*/
@@ -165,6 +165,11 @@ li span:hover {
   transform: translateX(-50%);
   bottom: 28px;
   cursor: pointer;
+}
+
+.modal-btn:hover {
+  background: #db8876;
+  color: rgb(12, 11, 11);
 }
 
 @media (min-width: 1200px) {
