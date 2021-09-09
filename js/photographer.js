@@ -9,7 +9,8 @@ fetch("./data/FishEyeData.json")
     const media = json.media.filter((media) => media.photographerId === id);
     let _medias;
     let index;
-    sortMedia("popularite");
+    const photographerPhVid = document.getElementById("photographerPhVid");
+    sortMedia("Popularité");
 
     //INFORMATION PHOTOGRAPHE
     //TITLE
@@ -34,13 +35,38 @@ fetch("./data/FishEyeData.json")
       tagsLi.className = "tag-btn";
       tagsLi.setAttribute("id", TagEl);
 
-      const tagsA = document.createElement("span");
-      tagsA.setAttribute("href", hrefUrl);
+      const tagsA = document.createElement("a");
+      tagsA.setAttribute("href", "index.html?tag=" + TagEl);
       tagsA.textContent = "#" + TagEl;
 
       tagsLi.appendChild(tagsA);
       Ul.appendChild(tagsLi);
     };
+
+    // LISTENER SUR LES TAGS
+    [...document.getElementsByClassName("tag-btn")].forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        //const tag = 'fashion' // changer le tag en fonction du bouton
+        const tag = TagEl;
+        applyFilter(tag);
+      });
+    });
+
+    //On applique les filtres
+    function applyFilter(tag = false) {
+      data.photographers.forEach((photographer) => {
+        document.getElementById(
+          "photographer-" + photographer.id
+        ).style.display = photographer.tags.includes(tag) ? "block" : "none";
+      });
+      // Gérer l'affichage conditionnel du background des boutons
+      [...document.getElementsByClassName("tag_active")].forEach((btn) => {
+        btn.classList.remove("tag_active");
+      });
+      [...document.getElementsByClassName("filter_" + tag)].forEach((btn) => {
+        btn.classList.add("tag_active");
+      });
+    }
 
     // ON RECUPERE ID DU UL
     const photographerTags = document.getElementById("tags");
@@ -65,26 +91,35 @@ fetch("./data/FishEyeData.json")
     //MEDIA SORT
     function sortMedia(value) {
       switch (value) {
-        case "popularite":
+        case "Popularité":
           _medias = media.sort((a, b) => b.likes - a.likes);
           break;
-        case "date":
-          _medias = media.sort((a, b) => b.date - a.date);
+        case "Date":
+          _medias = media.sort((a, b) => new Date(b.date) - new Date(a.date));
           break;
-        case "titre":
-          _medias = media.sort((a, b) => b.title - a.title);
+        case "Titre":
+          _medias = media.sort((a, b) => b.title < a.title);
           break;
       }
-      //createMediaListItem();
 
-      /*_medias.forEach((media, index) =>
-        createMediaListItem(photographer, media, index)
-      );*/
+      //supprimer la liste des medias avant de créer une nouvelle liste de médias trier
+      photographerPhVid.innerHTML = "";
+
+      _medias.forEach((media, _index) =>
+        createMediaListItem(photographer, media, _index)
+      );
+      sortBtn.innerHTML =
+        value + `<span class="fas fa-chevron-down sort-arrow"></span>`;
     }
-    document
+    /*document
       .getElementById("mediaSort")
-      .addEventListener("change", (ev) => sortMedia(ev.target.value));
+      .addEventListener("change", (ev) => sortMedia(ev.target.value));*/
 
+    document
+      .getElementById("sort-list")
+      .addEventListener("click", (ev) =>
+        sortMedia(ev.originalTarget.innerText)
+      );
     //RECTANGLE LIKE & PRICE
     let likes = media.reduce((likes, media) => likes + media.likes, 0);
     const total = document.getElementById("totalLikes");
@@ -95,7 +130,6 @@ fetch("./data/FishEyeData.json")
     //
 
     //VIDEOS ET PHOTOS
-    const section = document.getElementById("photographerPhVid");
 
     function getSrc(photographer, fileName) {
       const splitPhotographerName = photographer.name.split(" ");
@@ -117,6 +151,7 @@ fetch("./data/FishEyeData.json")
           "src",
           getSrc(photographer, currentMedia.image)
         );
+        imgElement.setAttribute("alt", currentMedia.title);
         contentContainer.appendChild(imgElement);
       } else if (currentMedia.video) {
         const videoElement = document.createElement("video");
@@ -127,6 +162,7 @@ fetch("./data/FishEyeData.json")
           "src",
           getSrc(photographer, currentMedia.video)
         );
+        videoSource.setAttribute("alt", currentMedia.title);
         contentContainer.appendChild(videoElement);
         videoElement.appendChild(videoSource);
       }
@@ -160,8 +196,28 @@ fetch("./data/FishEyeData.json")
       openLightbox();
     }
 
+    window.addEventListener("keydown", keyboardLightbox);
+
+    function keyboardLightbox(evt) {
+      evt.preventDefault();
+      switch (evt.code) {
+        case "ArrowLeft":
+          prevLightbox();
+          break;
+        case "ArrowRight":
+          nextLightbox();
+          break;
+        case "Escape":
+          closeLightbox();
+          break;
+        default:
+          return;
+      }
+    }
+
     // CREATE MEDIA LIST ITEM
     function createMediaListItem(photographer, media, _index) {
+      console.log(media);
       const content = document.createElement("div");
       content.className = "contentPhotoVideo";
       const aContentLink = document.createElement("a");
@@ -177,17 +233,18 @@ fetch("./data/FishEyeData.json")
         const imgElement = document.createElement("img");
         imgElement.setAttribute("src", getSrc(photographer, media.image));
         imgElement.className = "imgVidList";
-        imgElement.setAttribute("alt", media.title);
+        imgElement.setAttribute("alt", media.title + ", closeup view");
+        imgElement.setAttribute("role", "button");
         aContentLink.appendChild(imgElement);
       } else if (media.video) {
         const videoElement = document.createElement("video");
         videoElement.setAttribute("src", getSrc(photographer, media.video));
         videoElement.className = "imgVidList";
-        videoElement.setAttribute("alt", media.title);
+        videoElement.setAttribute("alt", media.title + ", closeup view");
         aContentLink.appendChild(videoElement);
       }
 
-      section.appendChild(content);
+      photographerPhVid.appendChild(content);
       content.appendChild(aContentLink);
 
       //Titre et like photo video
@@ -215,11 +272,8 @@ fetch("./data/FishEyeData.json")
       titleContent.appendChild(likeContainer);
       likeContainer.appendChild(titleLike);
       likeContainer.appendChild(titleHeart);
+      outSortList();
     }
-
-    _medias.forEach((media, _index) =>
-      createMediaListItem(photographer, media, _index)
-    );
 
     //INCREMENTES LES LIKES
     const clickHeart = [...document.getElementsByClassName("heart")];

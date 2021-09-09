@@ -18,6 +18,7 @@
   </head>
   <!--HEADER/BANNER-->
   <body>
+    <div class="sort-outside" id="sort-outside"></div>
     <header class="headerBanner">
       <a href="index.html" title="Homepage">
         <img src="Sample_Photos\logo.png" alt="Fisheye Home Page" />
@@ -50,7 +51,7 @@
         id="photographerContent"
         aria-label="Photographer Content"
       >
-        <!--MEDIA SORT-->
+        <!--MEDIA SORT
         <div class="photographerSort">
           <label for="mediaSort" class="photographerSort__Title"
             >Trier par</label
@@ -60,7 +61,25 @@
             <option value="date">Date</option>
             <option value="titre">Titre</option>
           </select>
-        </div>
+        </div>-->
+        <div class="photographerSort">
+          <label for="mediaSort" class="photographerSort__Title"
+            >Trier par</label
+          >
+          <div id="mediaSort" class="custom-select">
+            <button aria-haspopup="listbox" aria-labelledby="sort-label sort-btn" id="sort-btn" class="sort-btn">
+              Popularité<span class="fas fa-chevron-down sort-arrow"></span>
+            </button>
+            <ul id="sort-list" role="listbox" aria-labelledby="sort-label" class="sort-list hidden">
+              <li id="li-popularite" role="option">
+                Popularité <span class="fas fa-chevron-up sort-arrow"></span></span>
+              </li>
+              <li id="li-date" role="option">Date</li>
+              <li id="li-titre" role="option">Titre</li>
+            </ul>
+          </div>
+
+
         <div class="photographerPhVid" id="photographerPhVid"></div>
       </section>
 

@@ -116,7 +116,7 @@ ul {
   margin: 5px, 0, 5px, 0;
 }
 
-li {
+.tag-btn {
   display: flex;
   border: 0.5px solid #c4c4c4;
   border-radius: 30px;
@@ -126,22 +126,22 @@ li {
   font-weight: 500;
   font-size: 0.8em;
 }
-li:hover {
+.tag-btn:hover {
   cursor: pointer;
   background: #901c1c;
   border-color: #901c1c;
 }
 
-li:hover a {
+.tag-btn:hover a {
   color: #fff;
 }
 
-li a {
+.tag-btn a {
   text-decoration: none;
   color: #901c1c;
 }
 
-li a {
+.tag-btn a {
   color: #901c1c;
 }
 
