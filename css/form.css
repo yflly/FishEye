@@ -1,13 +1,35 @@
 .bground {
   display: none;
   position: fixed;
-  z-index: 1;
+  /*z-index: 1;*/
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
-  overflow: auto;
+  /*overflow: auto;*/
   background-color: rgba(196, 196, 196, 0.4);
+}
+
+.content {
+  display: block;
+
+  position: fixed;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  min-width: 300px;
+  width: 100%;
+  max-width: 670px;
+  z-index: 2;
+  border: none;
+  border-radius: 5px;
+}
+@media (min-width: 1200px) {
+  .content {
+    top: 70px;
+    width: 95%;
+  }
 }
 
 #myForm {
@@ -17,13 +39,22 @@
   border-radius: 5px;
   padding: 25px 35px 35px 35px;
   box-shadow: 0 0 15px #666;
+  /*margin:0;*/
 }
+
+/*@media (min-width: 1200px) {
+  #myForm {
+    max-width:470px;
+    max-height: 900px;
+    margin-top: 100px;
+    transform:translateX(120%);
+  }*/
 
 #bground__title,
 .form-name {
   font-weight: 400;
   font-size: 2.2em;
-  margin: 0;
+  margin: -5px 5px 20px 0;
 }
 
 label {
@@ -52,6 +83,7 @@ textarea {
   width: 170px;
   height: 35px;
   align-self: center;
+  cursor: pointer;
 }
 
 @media (min-width: 1200px) {

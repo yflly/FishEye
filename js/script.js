@@ -21,11 +21,23 @@ fetch("./data/FishEyeData.json")
         const tag = event.currentTarget.id;
         applyFilter(tag);
       });
+      btn.addEventListener("keydown", keyboardEnterTag);
     });
   })
   .catch((err) => {
     console.log(err);
   });
+
+function keyboardEnterTag(evt) {
+  switch (evt.code) {
+    case "Enter":
+      const tag = evt.currentTarget.id;
+      applyFilter(tag);
+      break;
+    default:
+      return;
+  }
+}
 
 // ON AJOUTE LES DONNEES PHOTOGRAPHES AU HTML
 function photographerNodeFactory(photographer) {
@@ -70,6 +82,7 @@ function photographerNodeFactory(photographer) {
     const tagsA = document.createElement("span");
     tagsA.setAttribute("href", hrefUrl);
     tagsA.textContent = "#" + tag;
+    tagsA.setAttribute("tabindex", "0");
 
     tagsLi.appendChild(tagsA);
     Ul.appendChild(tagsLi);

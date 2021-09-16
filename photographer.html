@@ -20,7 +20,7 @@
   <body>
     <div class="sort-outside" id="sort-outside"></div>
     <header class="headerBanner">
-      <a href="index.html" title="Homepage">
+      <a href="index.html" title="Homepage" tabindex="0">
         <img src="Sample_Photos\logo.png" alt="Fisheye Home Page" />
       </a>
     </header>
@@ -39,7 +39,7 @@
           <ul id="tags" class="filter"></ul>
         </div>
         <div class="modalButton">
-          <button id="modal-btn" class="modal-btn" aria-label="Contact me">
+          <button id="modal-btn" class="modal-btn" aria-label="Contact me" tabindex="0">
             Contactez-moi
           </button>
         </div>
@@ -71,10 +71,10 @@
               Popularité<span class="fas fa-chevron-down sort-arrow"></span>
             </button>
             <ul id="sort-list" role="listbox" aria-labelledby="sort-label" class="sort-list hidden">
-              <li id="li-popularite" role="option">
+              <li id="li-popularite" role="option" >
                 Popularité <span class="fas fa-chevron-up sort-arrow"></span></span>
               </li>
-              <li id="li-date" role="option">Date</li>
+              <li id="li-date" role="option" >Date</li>
               <li id="li-titre" role="option">Titre</li>
             </ul>
           </div>
@@ -152,7 +152,7 @@
         aria-hidden="true"
       ></div>
       <div id="lightbox" class="lightbox">
-        <div class="lightbox__media">
+        <div class="lightbox__media" id="lightbox__media">
           <div id="lightboxContent"></div>
           <button
             class="fas fa-times"

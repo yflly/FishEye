@@ -38,6 +38,7 @@ fetch("./data/FishEyeData.json")
       const tagsA = document.createElement("a");
       tagsA.setAttribute("href", "index.html?tag=" + TagEl);
       tagsA.textContent = "#" + TagEl;
+      tagsA.setAttribute("tabindex", "0");
 
       tagsLi.appendChild(tagsA);
       Ul.appendChild(tagsLi);
@@ -174,7 +175,8 @@ fetch("./data/FishEyeData.json")
 
       document.getElementById("cover").style.display = "block";
       document.getElementById("lightbox").style.display = "block";
-      document.getElementById("rectangleLikePrice").style.display = "none";
+      //document.getElementById("rectangleLikePrice").style.display = "none";
+      document.getElementById("modal-btn").style.display = "none";
     }
 
     // // ARROW NEXT PREV
@@ -196,7 +198,14 @@ fetch("./data/FishEyeData.json")
       openLightbox();
     }
 
-    window.addEventListener("keydown", keyboardLightbox);
+    //Si lightbox ouverte keydown ok
+    function lightboxKeyboard() {
+      if (light == 0) {
+        console.log(light);
+      } else {
+        window.addEventListener("keydown", keyboardLightbox);
+      }
+    }
 
     function keyboardLightbox(evt) {
       evt.preventDefault();
@@ -215,9 +224,24 @@ fetch("./data/FishEyeData.json")
       }
     }
 
+    // CLOSE LIGHTBOX
+    const lightboxBtnClose = document.querySelector(".fa-times");
+
+    // CLOSE LIGHTBOX
+    lightboxBtnClose.addEventListener("click", closeLightbox);
+
+    function closeLightbox() {
+      document.getElementById("cover").style.display = "none";
+      document.getElementById("lightbox").style.display = "none";
+      //document.getElementById("rectangleLikePrice").style.display = "flex";
+      document.getElementById("modal-btn").style.display = "block";
+      light = 0;
+      window.removeEventListener("keydown", keyboardLightbox);
+    }
+
     // CREATE MEDIA LIST ITEM
+    light = 0; // variable pour detecter si la lightbox est ouverte ou fermer
     function createMediaListItem(photographer, media, _index) {
-      console.log(media);
       const content = document.createElement("div");
       content.className = "contentPhotoVideo";
       const aContentLink = document.createElement("a");
@@ -226,6 +250,8 @@ fetch("./data/FishEyeData.json")
       aContentLink.addEventListener("click", () => {
         index = _index;
         openLightbox();
+        light = 1;
+        lightboxKeyboard();
       });
 
       //Image ou Video
@@ -235,6 +261,7 @@ fetch("./data/FishEyeData.json")
         imgElement.className = "imgVidList";
         imgElement.setAttribute("alt", media.title + ", closeup view");
         imgElement.setAttribute("role", "button");
+
         aContentLink.appendChild(imgElement);
       } else if (media.video) {
         const videoElement = document.createElement("video");
@@ -265,6 +292,8 @@ fetch("./data/FishEyeData.json")
       titleLike.innerHTML = media.likes;
       const titleHeart = document.createElement("span");
       titleHeart.className = "heart fas fa-heart";
+      titleHeart.setAttribute("tabindex", "0");
+      titleHeart.setAttribute("role", "button");
 
       content.appendChild(titleContent);
       titleContent.appendChild(titlePhotoVideo);
@@ -278,17 +307,38 @@ fetch("./data/FishEyeData.json")
     //INCREMENTES LES LIKES
     const clickHeart = [...document.getElementsByClassName("heart")];
     const numbersLike = [...document.getElementsByClassName("titleLike")];
-    clickHeart.forEach((heart, index) =>
-      heart.addEventListener("click", function () {
-        const numberLike = numbersLike[index];
-        let counter = parseInt(numberLike.textContent);
-        counter++;
-        numberLike.innerText = counter;
-        likes++;
-        total.innerHTML = likes;
-      })
+    clickHeart.forEach(
+      (heart, index) =>
+        heart.addEventListener("click", function () {
+          const numberLike = numbersLike[index];
+          let counter = parseInt(numberLike.textContent);
+          counter++;
+          numberLike.innerText = counter;
+          likes++;
+          total.innerHTML = likes;
+        })
+      //heart.addEventListener("keydown", keyboardHeart);
     );
+
+    function numberHeart() {
+      const numberLike = numbersLike[index];
+      let counter = parseInt(numberLike.textContent);
+      counter++;
+      numberLike.innerText = counter;
+      likes++;
+      total.innerHTML = likes;
+    }
   })
   .catch((err) => {
     console.log(err);
   });
+
+function keyboardHeart(evt) {
+  switch (evt.code) {
+    case "Enter":
+      numberHeart();
+      break;
+    default:
+      return;
+  }
+}
