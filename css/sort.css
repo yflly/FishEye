@@ -89,6 +89,11 @@ li:hover {
   cursor: pointer;
 }
 
+li:focus {
+  background-color: #651414;
+  border-radius: 5px;
+}
+
 #li-popularite {
   display: flex;
   justify-content: space-between;

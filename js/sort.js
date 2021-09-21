@@ -1,50 +1,50 @@
-const sortListElt = document.getElementById("sort-list");
+/*const sortListElt = document.getElementById("sort-list");
 const sortBtn = document.getElementById("sort-btn");
 const sortOutside = document.getElementById("sort-outside");
-sortKeyboard = 0; //pour detecter si la listbox est ouverte 0=fermer 1=ouverte
+
+const sort1 = document.getElementById("li-popularite");
+const sort2 = document.getElementById("li-date");
+const sort3 = document.getElementById("li-titre");
 
 sortBtn.addEventListener("click", sortList);
-sortBtn.addEventListener("keydown", sortList);
 
 function sortList() {
   sortListElt.style.display = "block";
   sortOutside.style.display = "block";
-  sortOutside.addEventListener("click", keyboardSort);
-  sortKeyboard = 1;
-  sortKey();
+  sortListElt.addEventListener("keydown", keyboardSort);
+  sortOutside.addEventListener("click", outSortList);
+  sort1.focus();
 }
 
 function outSortList() {
   sortListElt.style.display = "none";
   sortOutside.style.display = "none";
-  sortKeyboard = 0;
   window.removeEventListener("keydown", keyboardSort);
 }
 
-//Si SortKeyboard ouverte keydown ok
-
-function sortKey() {
-  if (sortKeyboard == 0) {
-    console.log("sortkeyboard");
-  } else {
-    window.addEventListener("keydown", keyboardSort);
-  }
-}
-
 function keyboardSort(evt) {
-  evt.preventDefault();
+  const focusElt = document.activeElement;
+  console.log(focusElt.innerText);
+  console.log(sort1.innerText);
+  //evt.preventDefault();
   switch (evt.code) {
     case "ArrowDown":
-      console.log("down");
+      if (focusElt === sort1) sort2.focus();
+      if (focusElt === sort2) sort3.focus();
+      if (focusElt === sort3) sort1.focus();
       break;
     case "ArrowUp":
-      console.log("up");
+      if (focusElt === sort1) sort3.focus();
+      if (focusElt === sort2) sort1.focus();
+      if (focusElt === sort3) sort2.focus();
+      break;
+    case "Escape":
+      outSortList();
       break;
     case "Enter":
-      console.log("enter");
-      //sortMedia(ev.originalTarget.innerText);
+      sortMedia(focusElt.innerText);
       break;
     default:
       return;
   }
-}
+}*/

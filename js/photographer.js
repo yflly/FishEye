@@ -10,6 +10,15 @@ fetch("./data/FishEyeData.json")
     let _medias;
     let index;
     const photographerPhVid = document.getElementById("photographerPhVid");
+
+    const sortListElt = document.getElementById("sort-list");
+    const sortBtn = document.getElementById("sort-btn");
+    const sortOutside = document.getElementById("sort-outside");
+
+    const sort1 = document.getElementById("li-popularite");
+    const sort2 = document.getElementById("li-date");
+    const sort3 = document.getElementById("li-titre");
+
     sortMedia("Popularité");
 
     //INFORMATION PHOTOGRAPHE
@@ -112,15 +121,56 @@ fetch("./data/FishEyeData.json")
       sortBtn.innerHTML =
         value + `<span class="fas fa-chevron-down sort-arrow"></span>`;
     }
-    /*document
-      .getElementById("mediaSort")
-      .addEventListener("change", (ev) => sortMedia(ev.target.value));*/
 
     document
       .getElementById("sort-list")
       .addEventListener("click", (ev) =>
         sortMedia(ev.originalTarget.innerText)
       );
+
+    sortBtn.addEventListener("click", sortList);
+
+    function sortList() {
+      sortListElt.style.display = "block";
+      sortOutside.style.display = "block";
+      sortListElt.addEventListener("keydown", keyboardSort);
+      sortOutside.addEventListener("click", outSortList);
+      sort1.focus();
+    }
+
+    function outSortList() {
+      sortListElt.style.display = "none";
+      sortOutside.style.display = "none";
+      sortListElt.removeEventListener("keydown", keyboardSort);
+      sortOutside.removeEventListener("click", outSortList);
+      sortBtn.focus();
+    }
+
+    function keyboardSort(evt) {
+      const focusElt = document.activeElement;
+      //evt.preventDefault();
+      switch (evt.code) {
+        case "ArrowDown":
+          if (focusElt === sort1) sort2.focus();
+          if (focusElt === sort2) sort3.focus();
+          if (focusElt === sort3) sort1.focus();
+          break;
+        case "ArrowUp":
+          if (focusElt === sort1) sort3.focus();
+          if (focusElt === sort2) sort1.focus();
+          if (focusElt === sort3) sort2.focus();
+          break;
+        case "Escape":
+          outSortList();
+          break;
+        case "Enter":
+          sortMedia(focusElt.innerText);
+          break;
+        default:
+          return;
+      }
+    }
+
     //RECTANGLE LIKE & PRICE
     let likes = media.reduce((likes, media) => likes + media.likes, 0);
     const total = document.getElementById("totalLikes");
@@ -227,7 +277,6 @@ fetch("./data/FishEyeData.json")
     // CLOSE LIGHTBOX
     const lightboxBtnClose = document.querySelector(".fa-times");
 
-    // CLOSE LIGHTBOX
     lightboxBtnClose.addEventListener("click", closeLightbox);
 
     function closeLightbox() {
@@ -305,40 +354,32 @@ fetch("./data/FishEyeData.json")
     }
 
     //INCREMENTES LES LIKES
+
+    //function likeClick() {
     const clickHeart = [...document.getElementsByClassName("heart")];
     const numbersLike = [...document.getElementsByClassName("titleLike")];
-    clickHeart.forEach(
-      (heart, index) =>
-        heart.addEventListener("click", function () {
+    clickHeart.forEach((heart, index) => {
+      heart.addEventListener("click", function () {
+        const numberLike = numbersLike[index];
+        let counter = parseInt(numberLike.textContent);
+        counter++;
+        numberLike.innerText = counter;
+        likes++;
+        total.innerHTML = likes;
+      });
+      heart.addEventListener("keydown", function (evt) {
+        if (evt.code == "Enter") {
           const numberLike = numbersLike[index];
           let counter = parseInt(numberLike.textContent);
           counter++;
           numberLike.innerText = counter;
           likes++;
           total.innerHTML = likes;
-        })
-      //heart.addEventListener("keydown", keyboardHeart);
-    );
-
-    function numberHeart() {
-      const numberLike = numbersLike[index];
-      let counter = parseInt(numberLike.textContent);
-      counter++;
-      numberLike.innerText = counter;
-      likes++;
-      total.innerHTML = likes;
-    }
+        }
+      });
+    });
+    //}
   })
   .catch((err) => {
     console.log(err);
   });
-
-function keyboardHeart(evt) {
-  switch (evt.code) {
-    case "Enter":
-      numberHeart();
-      break;
-    default:
-      return;
-  }
-}
