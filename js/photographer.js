@@ -1,4 +1,5 @@
 /*ON RECUPERE LE FICHIER DATA JSON*/
+
 fetch("./data/FishEyeData.json")
   .then((response) => response.json())
   .then((json) => {
@@ -53,15 +54,6 @@ fetch("./data/FishEyeData.json")
       Ul.appendChild(tagsLi);
     };
 
-    // LISTENER SUR LES TAGS
-    [...document.getElementsByClassName("tag-btn")].forEach((btn) => {
-      btn.addEventListener("click", (event) => {
-        //const tag = 'fashion' // changer le tag en fonction du bouton
-        const tag = TagEl;
-        applyFilter(tag);
-      });
-    });
-
     //On applique les filtres
     function applyFilter(tag = false) {
       data.photographers.forEach((photographer) => {
@@ -77,6 +69,15 @@ fetch("./data/FishEyeData.json")
         btn.classList.add("tag_active");
       });
     }
+
+    // LISTENER SUR LES TAGS
+    [...document.getElementsByClassName("tag-btn")].forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        //const tag = 'fashion' // changer le tag en fonction du bouton
+        const tag = TagEl;
+        applyFilter(tag);
+      });
+    });
 
     // ON RECUPERE ID DU UL
     const photographerTags = document.getElementById("tags");
@@ -118,6 +119,7 @@ fetch("./data/FishEyeData.json")
       _medias.forEach((media, _index) =>
         createMediaListItem(photographer, media, _index)
       );
+      likeClick();
       sortBtn.innerHTML =
         value + `<span class="fas fa-chevron-down sort-arrow"></span>`;
     }
@@ -169,6 +171,34 @@ fetch("./data/FishEyeData.json")
         default:
           return;
       }
+    }
+
+    //INCREMENTES LES LIKES
+
+    function likeClick() {
+      const clickHeart = [...document.getElementsByClassName("heart")];
+      const numbersLike = [...document.getElementsByClassName("titleLike")];
+      clickHeart.forEach((heart, index) => {
+        heart.addEventListener("click", function () {
+          const numberLike = numbersLike[index];
+          let counter = parseInt(numberLike.textContent);
+          counter++;
+          numberLike.innerText = counter;
+          likes++;
+          total.innerHTML = likes;
+          //return counter;
+        });
+        heart.addEventListener("keydown", function (evt) {
+          if (evt.code == "Enter") {
+            const numberLike = numbersLike[index];
+            let counter = parseInt(numberLike.textContent);
+            counter++;
+            numberLike.innerText = counter;
+            likes++;
+            total.innerHTML = likes;
+          }
+        });
+      });
     }
 
     //RECTANGLE LIKE & PRICE
@@ -291,6 +321,8 @@ fetch("./data/FishEyeData.json")
     // CREATE MEDIA LIST ITEM
     light = 0; // variable pour detecter si la lightbox est ouverte ou fermer
     function createMediaListItem(photographer, media, _index) {
+      outSortList();
+
       const content = document.createElement("div");
       content.className = "contentPhotoVideo";
       const aContentLink = document.createElement("a");
@@ -350,35 +382,7 @@ fetch("./data/FishEyeData.json")
       titleContent.appendChild(likeContainer);
       likeContainer.appendChild(titleLike);
       likeContainer.appendChild(titleHeart);
-      outSortList();
     }
-
-    //INCREMENTES LES LIKES
-
-    //function likeClick() {
-    const clickHeart = [...document.getElementsByClassName("heart")];
-    const numbersLike = [...document.getElementsByClassName("titleLike")];
-    clickHeart.forEach((heart, index) => {
-      heart.addEventListener("click", function () {
-        const numberLike = numbersLike[index];
-        let counter = parseInt(numberLike.textContent);
-        counter++;
-        numberLike.innerText = counter;
-        likes++;
-        total.innerHTML = likes;
-      });
-      heart.addEventListener("keydown", function (evt) {
-        if (evt.code == "Enter") {
-          const numberLike = numbersLike[index];
-          let counter = parseInt(numberLike.textContent);
-          counter++;
-          numberLike.innerText = counter;
-          likes++;
-          total.innerHTML = likes;
-        }
-      });
-    });
-    //}
   })
   .catch((err) => {
     console.log(err);
