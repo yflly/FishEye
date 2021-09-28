@@ -56,11 +56,9 @@ function closeModal() {
 }
 
 document.forms["modalForm"].addEventListener("submit", handleForSubmit);
-
 function handleForSubmit(ev) {
   ev.preventDefault();
   console.log(firstName.value + " " + lastName.value + " " + email.value);
-
   closeModal();
 }
 
