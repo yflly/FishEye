@@ -10,6 +10,10 @@ fetch("./data/FishEyeData.json")
     const media = json.media.filter((media) => media.photographerId === id);
     let _medias;
     let index;
+    let data;
+    let TagEl;
+    let light;
+
     const photographerPhVid = document.getElementById("photographerPhVid");
 
     const sortListElt = document.getElementById("sort-list");
@@ -40,7 +44,7 @@ fetch("./data/FishEyeData.json")
     photographerTagline.innerHTML = photographer.tagline;
 
     // CREE ELEMENT li DE LA LISTE TAG
-    const createTagList = (Ul, TagEl, hrefUrl) => {
+    const createTagList = (Ul, TagEl) => {
       const tagsLi = document.createElement("li");
       tagsLi.className = "tag-btn";
       tagsLi.setAttribute("id", TagEl);
@@ -72,7 +76,7 @@ fetch("./data/FishEyeData.json")
 
     // LISTENER SUR LES TAGS
     [...document.getElementsByClassName("tag-btn")].forEach((btn) => {
-      btn.addEventListener("click", (event) => {
+      btn.addEventListener("click", () => {
         //const tag = 'fashion' // changer le tag en fonction du bouton
         const tag = TagEl;
         applyFilter(tag);

@@ -17,9 +17,10 @@ fetch("/data/FishEyeData.json")
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
+//const formData = document.querySelectorAll(".formData");
 const modalBtnClose = document.querySelectorAll(".bground .close")[0];
-const btnSubmit = document.querySelectorAll("#btn-submit");
+//const btnSubmit = document.querySelectorAll("#btn-submit");
+let modalK;
 
 //Form elements
 const firstName = document.getElementById("first");
