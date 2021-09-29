@@ -39,7 +39,7 @@ body {
 
 ul {
   padding: 0;
-  margin: 5px, 0, 5px, 0;
+  margin: 5px 0 5px 0;
 }
 
 li {
@@ -55,7 +55,7 @@ li {
 li:hover {
   cursor: pointer;
   background: #901c1c;
-  border-color: #901c1c;
+  border-color: #fff;
 }
 
 li:hover a {
