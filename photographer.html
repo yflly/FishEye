@@ -21,7 +21,7 @@
     <div class="sort-outside" id="sort-outside"></div>
     <header class="headerBanner">
       <a href="index.html" title="Homepage" tabindex="0">
-        <img src="Sample_Photos\logo.png" alt="Fisheye Home Page" />
+        <img src="Sample_Photos/logo.png" alt="Fisheye Home Page" />
       </a>
     </header>
 
@@ -39,7 +39,12 @@
           <ul id="tags" class="filter"></ul>
         </div>
         <div class="modalButton">
-          <button id="modal-btn" class="modal-btn" aria-label="Contact me" tabindex="0">
+          <button
+            id="modal-btn"
+            class="modal-btn"
+            aria-label="Contact me"
+            tabindex="0"
+          >
             Contactez-moi
           </button>
         </div>
@@ -63,23 +68,31 @@
           </select>
         </div>-->
         <div class="photographerSort">
-          <label for="mediaSort" class="photographerSort__Title"
-            >Trier par</label
-          >
+          <span id="sort-label" class="photographerSort__Title">Trier par</span>
           <div id="mediaSort" class="custom-select">
-            <button aria-haspopup="listbox" aria-labelledby="sort-label sort-btn" id="sort-btn" class="sort-btn">
+            <button
+              aria-haspopup="listbox"
+              aria-labelledby="sort-label sort-btn"
+              id="sort-btn"
+              class="sort-btn"
+            >
               Popularité<span class="fas fa-chevron-down sort-arrow"></span>
             </button>
-            <ul id="sort-list" role="listbox" aria-labelledby="sort-label" class="sort-list hidden" tabindex="-1">
+            <ul
+              id="sort-list"
+              role="listbox"
+              aria-labelledby="sort-label"
+              class="sort-list hidden"
+              tabindex="-1"
+            >
               <li id="li-popularite" role="option" tabindex="-1">
-                Popularité <span class="fas fa-chevron-up sort-arrow"></span></span>
+                Popularité <span class="fas fa-chevron-up sort-arrow"></span>
               </li>
               <li id="li-date" role="option" tabindex="-1">Date</li>
               <li id="li-titre" role="option" tabindex="-1">Titre</li>
             </ul>
           </div>
-
-
+        </div>
         <div class="photographerPhVid" id="photographerPhVid"></div>
       </section>
 
@@ -91,47 +104,46 @@
             <h1 id="bground__title">Contactez-moi</h1>
             <span class="form-name" id="form-name"></span>
 
-            <label for="first">Prénom</label>
+            <label for="first" id="label-firstname">Prénom</label>
             <input
               class="text-control"
               type="text"
               id="first"
               name="first"
-              aria-labelledby="First name"
-              ;
+              aria-labelledby="label-firstname"
               aria-required="true"
               required
             />
 
-            <label for="last">Nom</label>
+            <label for="last" id="label-lastname">Nom</label>
             <input
               class="text-control"
               type="text"
               id="last"
               name="last"
-              aria-labelledby="Last name"
+              aria-labelledby="label-lastname"
               aria-required="true"
               required
             />
 
-            <label for="email">Email</label>
+            <label for="email" id="label-email">Email</label>
             <input
               class="text-control"
               type="email"
               id="email"
               name="email"
-              aria-labelledby="Email"
+              aria-labelledby="label-email"
               aria-required="true"
               required
             />
 
-            <label for="message">Votre message</label>
+            <label for="message" id="label-message">Votre message</label>
             <textarea
               id="message"
               name="message"
               rows="5"
               cols="30"
-              aria-labelledby="Your message"
+              aria-labelledby="label-message"
             >
             </textarea>
             <input
@@ -154,11 +166,7 @@
       <div id="lightbox" class="lightbox">
         <div class="lightbox__media" id="lightbox__media">
           <div id="lightboxContent"></div>
-          <button
-            class="fas fa-times"
-            arial-label="Close dialog"
-            aria-hidden="true"
-          ></button>
+          <button class="fas fa-times" aria-hidden="true"></button>
           <button
             class="fas fa-chevron-left"
             aria-label="Previous image"
