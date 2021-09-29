@@ -353,6 +353,7 @@
       "tags": ["travel"],
       "likes": 88,
       "date": "2019-02-03",
+      "alt": "Un homme solitaire en haut d'une falaise",
       "price": 45
     },
     {
@@ -363,6 +364,7 @@
       "tags": ["travel"],
       "likes": 85,
       "date": "2019-04-03",
+      "alt": "Flanc de coline coloré",
       "price": 45
     },
     {
@@ -373,6 +375,7 @@
       "tags": ["portait"],
       "likes": 34,
       "date": "2019-04-07",
+      "alt": "Portrait du mercredi fille faisant une grimace",
       "price": 45
     },
     {
@@ -383,6 +386,7 @@
       "tags": ["portait"],
       "likes": 63,
       "date": "2019-04-07",
+      "alt": "Portrait d'une jeune femme avec des lunettes",
       "price": 45
     },
     {
@@ -393,6 +397,7 @@
       "tags": ["portait"],
       "likes": 55,
       "date": "2019-06-20",
+      "alt": "Portrait noir brut d'une jeune femme",
       "price": 45
     },
     {
@@ -403,6 +408,7 @@
       "tags": ["events"],
       "likes": 25,
       "date": "2019-06-21",
+      "alt": "Table de mariage en bord de mer",
       "price": 45
     },
     {
@@ -413,6 +419,7 @@
       "tags": ["events"],
       "likes": 52,
       "date": "2019-06-25",
+      "alt": "Photo de mariage d'un couple avec un arrière-plan de rocher",
       "price": 45
     },
     {
@@ -423,6 +430,7 @@
       "tags": ["events"],
       "likes": 77,
       "date": "2019-06-28",
+      "alt": "Photo de mariage d'un couple dans une cérémonie religieuse",
       "price": 45
     },
     {
@@ -433,6 +441,7 @@
       "tags": ["animals"],
       "likes": 142,
       "date": "2019-08-23",
+      "alt": "Vidéo de chevaux sauvage dans les montagnes",
       "price": 60
     },
     {
@@ -443,6 +452,7 @@
       "tags": ["animals"],
       "likes": 59,
       "date": "2019-07-02",
+      "alt": "Petit oiseau avec un plumage arc en ciel",
       "price": 60
     },
 
