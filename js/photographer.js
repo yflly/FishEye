@@ -227,6 +227,7 @@ fetch("./data/FishEyeData.json")
       const currentMedia = media[index];
       const contentContainer = document.getElementById("lightboxContent");
       contentContainer.innerHTML = "";
+
       //Image ou Video
       if (currentMedia.image) {
         const imgElement = document.createElement("img");
@@ -236,7 +237,7 @@ fetch("./data/FishEyeData.json")
           "src",
           getSrc(photographer, currentMedia.image)
         );
-        imgElement.setAttribute("alt", currentMedia.title);
+        imgElement.setAttribute("alt", currentMedia.alt);
         contentContainer.appendChild(imgElement);
       } else if (currentMedia.video) {
         const videoElement = document.createElement("video");
@@ -247,7 +248,7 @@ fetch("./data/FishEyeData.json")
           "src",
           getSrc(photographer, currentMedia.video)
         );
-        videoSource.setAttribute("alt", currentMedia.title);
+        videoSource.setAttribute("alt", currentMedia.alt);
         contentContainer.appendChild(videoElement);
         videoElement.appendChild(videoSource);
       }
