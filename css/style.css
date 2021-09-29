@@ -58,16 +58,16 @@ li:hover {
   border-color: #901c1c;
 }
 
-li:hover span {
+li:hover a {
   color: #fff;
 }
 
-li span {
+li a {
   text-decoration: none;
   color: #901c1c;
 }
 
-li span:hover {
+li a:hover {
   color: #fff;
 }
 
@@ -158,7 +158,7 @@ main h1 {
   background-color: #901c1c;
 }
 
-.tag_active span {
+.tag_active a {
   color: #fff;
 }
 

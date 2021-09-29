@@ -29,9 +29,9 @@ fetch("./data/FishEyeData.json")
   });
 
 function keyboardEnterTag(evt) {
+  const tag = evt.currentTarget.id;
   switch (evt.code) {
     case "Enter":
-      const tag = evt.currentTarget.id;
       applyFilter(tag);
       break;
     default:
@@ -79,7 +79,7 @@ function photographerNodeFactory(photographer) {
     const tagsLi = document.createElement("li");
     tagsLi.className = `tag-btn filter_${tag}`;
     tagsLi.setAttribute("id", tag);
-    const tagsA = document.createElement("span");
+    const tagsA = document.createElement("a");
     tagsA.setAttribute("href", hrefUrl);
     tagsA.textContent = "#" + tag;
     tagsA.setAttribute("tabindex", "0");
