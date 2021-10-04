@@ -128,11 +128,10 @@ fetch("./data/FishEyeData.json")
         value + `<span class="fas fa-chevron-down sort-arrow"></span>`;
     }
 
-    document
-      .getElementById("sort-list")
-      .addEventListener("click", (ev) =>
-        sortMedia(ev.originalTarget.innerText)
-      );
+    document.getElementById("sort-list").addEventListener("click", (ev) =>
+      //sortMedia(ev.originalTarget.innerText)
+      sortMedia(ev.target.innerText.trim())
+    );
 
     sortBtn.addEventListener("click", sortList);
 
@@ -260,7 +259,6 @@ fetch("./data/FishEyeData.json")
 
       document.getElementById("cover").style.display = "block";
       document.getElementById("lightbox").style.display = "block";
-      //document.getElementById("rectangleLikePrice").style.display = "none";
       document.getElementById("modal-btn").style.display = "none";
     }
 
@@ -317,7 +315,6 @@ fetch("./data/FishEyeData.json")
     function closeLightbox() {
       document.getElementById("cover").style.display = "none";
       document.getElementById("lightbox").style.display = "none";
-      //document.getElementById("rectangleLikePrice").style.display = "flex";
       document.getElementById("modal-btn").style.display = "block";
       light = 0;
       window.removeEventListener("keydown", keyboardLightbox);
@@ -356,7 +353,6 @@ fetch("./data/FishEyeData.json")
         videoElement.setAttribute("alt", media.title + ", closeup view");
         aContentLink.appendChild(videoElement);
       }
-
       photographerPhVid.appendChild(content);
       content.appendChild(aContentLink);
 
